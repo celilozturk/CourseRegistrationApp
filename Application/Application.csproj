@@ -16,11 +16,9 @@
   <ItemGroup>
     <Folder Include="Behaviors\Logging\" />
     <Folder Include="Behaviors\Validation\" />
-    <Folder Include="Common\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Features\Courses\Commands\Delete\" />
     <Folder Include="Features\Courses\Commands\Update\" />
-    <Folder Include="Features\Courses\Queries\GetList\" />
     <Folder Include="Features\Courses\Queries\GetById\" />
   </ItemGroup>
 
