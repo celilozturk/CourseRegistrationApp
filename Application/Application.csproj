@@ -17,7 +17,6 @@
     <Folder Include="Behaviors\Logging\" />
     <Folder Include="Behaviors\Validation\" />
     <Folder Include="Exceptions\" />
-    <Folder Include="Features\Courses\Commands\Update\" />
   </ItemGroup>
 
   <ItemGroup>

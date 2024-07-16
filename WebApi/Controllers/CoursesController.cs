@@ -1,5 +1,6 @@
 ﻿using Application.Features.Courses.Commands.Create;
 using Application.Features.Courses.Commands.Delete;
+using Application.Features.Courses.Commands.Update;
 using Application.Features.Courses.Queries.GetById;
 using Application.Features.Courses.Queries.GetList;
 using Azure;
@@ -35,5 +36,11 @@ public class CoursesController : CustomBaseController
     {
         var response= await Mediator.Send(new DeleteCourseCommand(id));
         return Ok(response);    
+    }
+    [HttpPut]
+    public async Task<IActionResult> Update(UpdateCourseCommand updateCourseCommand)
+    {
+        var response = await Mediator.Send(updateCourseCommand); 
+        return Ok(response);
     }
 }
