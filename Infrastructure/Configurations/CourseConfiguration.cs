@@ -15,7 +15,7 @@ public class CourseConfiguration : IEntityTypeConfiguration<Course>
         builder.ToTable("Courses");
         builder.HasKey(c=>c.Id);
         builder.Property(c=>c.Name).HasMaxLength(100).IsRequired();
-        builder.Property(c=>c.TotalPaticipant).IsRequired();
+        builder.Property(c=>c.TotalPaticipants).IsRequired();
 
         builder.HasData(
             new Course() { Id=1, Name="Angular 18",CreatedDate=DateTime.UtcNow },

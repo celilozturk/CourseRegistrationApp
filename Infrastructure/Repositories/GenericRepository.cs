@@ -18,9 +18,9 @@ public class GenericRepository<TEntity, TId> : IGenericRepository<TEntity, TId> 
         _appDbContext = appDbContext;
         _dbSet = _appDbContext.Set<TEntity>();
     }
-    public async Task<TEntity> CreateAsync(TEntity entity)
+    public async Task<TEntity> CreateAsync(TEntity entity, CancellationToken cancellationToken)
     {
-        await _dbSet.AddAsync(entity);
+        await _dbSet.AddAsync(entity,cancellationToken);
         return entity;
     }   
 
@@ -29,7 +29,7 @@ public class GenericRepository<TEntity, TId> : IGenericRepository<TEntity, TId> 
         return _dbSet.AsNoTracking().AsQueryable();
     }
 
-    public async Task<TEntity> GetByIdAsync(TId id)
+    public async Task<TEntity> GetByIdAsync(TId id, CancellationToken cancellationToken)
     {
         var entity = await _dbSet.FindAsync(id);
         return entity;

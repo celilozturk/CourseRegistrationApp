@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240716214852_init")]
+    [Migration("20240716223114_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -44,7 +44,7 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("TotalPaticipant")
+                    b.Property<int>("TotalPaticipants")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("UpdatedDate")
@@ -58,23 +58,23 @@ namespace Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2024, 7, 16, 21, 48, 50, 324, DateTimeKind.Utc).AddTicks(5337),
+                            CreatedDate = new DateTime(2024, 7, 16, 22, 31, 14, 643, DateTimeKind.Utc).AddTicks(406),
                             Name = "Angular 18",
-                            TotalPaticipant = 0
+                            TotalPaticipants = 0
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 7, 16, 21, 48, 50, 324, DateTimeKind.Utc).AddTicks(5339),
+                            CreatedDate = new DateTime(2024, 7, 16, 22, 31, 14, 643, DateTimeKind.Utc).AddTicks(408),
                             Name = "Full Stack Web Development",
-                            TotalPaticipant = 0
+                            TotalPaticipants = 0
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 7, 16, 21, 48, 50, 324, DateTimeKind.Utc).AddTicks(5341),
+                            CreatedDate = new DateTime(2024, 7, 16, 22, 31, 14, 643, DateTimeKind.Utc).AddTicks(410),
                             Name = "Database Organization",
-                            TotalPaticipant = 0
+                            TotalPaticipants = 0
                         });
                 });
 #pragma warning restore 612, 618

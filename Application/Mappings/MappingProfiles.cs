@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using Application.Features.Courses.Commands.Create;
+using AutoMapper;
+using Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +12,7 @@ public class MappingProfiles:Profile
 {
     public MappingProfiles()
     {
-        
+        CreateMap<Course, CreateCourseCommand>().ReverseMap();
+        CreateMap<Course, CreateCourseResponse>().ReverseMap();
     }
 }

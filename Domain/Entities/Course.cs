@@ -9,5 +9,5 @@ namespace Domain.Entities;
 public class Course:BaseEntity<int>
 {
     public string Name { get; set; }
-    public int TotalPaticipant { get; set; }
+    public int TotalPaticipants { get; set; }
 }

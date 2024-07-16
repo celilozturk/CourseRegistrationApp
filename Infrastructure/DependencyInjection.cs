@@ -1,4 +1,7 @@
-﻿using Infrastructure.Contexts;
+﻿using Domain.Abstractions;
+using Domain.Abstractions.Repositories;
+using Infrastructure.Contexts;
+using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +20,9 @@ public static class DependencyInjection
         {
             opt.UseSqlServer(configuration.GetConnectionString("SqlConnectionString"));
         });
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<ICourseRepository, CourseRepository>();  
+
         return services;
     }
 }

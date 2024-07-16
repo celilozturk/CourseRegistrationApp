@@ -18,7 +18,7 @@ public class UnitOfWork : IUnitOfWork
 
     public async Task CommitAsync(CancellationToken cancellation = default)
     {
-       await _appDbContext.SaveChangesAsync();
+       await _appDbContext.SaveChangesAsync(cancellation);
     }
 
     public void Commmit()
