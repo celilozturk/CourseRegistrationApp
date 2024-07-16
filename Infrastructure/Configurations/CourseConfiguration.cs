@@ -18,9 +18,9 @@ public class CourseConfiguration : IEntityTypeConfiguration<Course>
         builder.Property(c=>c.TotalPaticipants).IsRequired();
 
         builder.HasData(
-            new Course() { Id=1, Name="Angular 18",CreatedDate=DateTime.UtcNow },
-            new Course() { Id=2, Name="Full Stack Web Development",CreatedDate=DateTime.UtcNow },
-            new Course() { Id=3, Name="Database Organization",CreatedDate=DateTime.UtcNow }
+            new Course() { Id=1, Name="Angular 18",CreatedDate=DateTime.UtcNow, TotalPaticipants=20 },
+            new Course() { Id=2, Name="Full Stack Web Development",CreatedDate=DateTime.UtcNow , TotalPaticipants=100},
+            new Course() { Id=3, Name="Database Organization",CreatedDate=DateTime.UtcNow , TotalPaticipants=50}
             );
     }
 

@@ -6,4 +6,4 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.Features.Courses.Commands.Create;
-public record CreateCourseCommand(string Name, int TotalParticipants):IRequest<CreateCourseResponse>;
+public record CreateCourseCommand(string Name, int TotalPaticipants) :IRequest<CreateCourseResponse>;

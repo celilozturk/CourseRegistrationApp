@@ -1,4 +1,5 @@
 ﻿using Application.Features.Courses.Commands.Create;
+using Application.Features.Courses.Queries.GetById;
 using Application.Features.Courses.Queries.GetList;
 using AutoMapper;
 using Domain.Entities;
@@ -17,5 +18,7 @@ public class MappingProfiles:Profile
         CreateMap<Course, CreateCourseResponse>().ReverseMap();
 
         CreateMap<Course, GetListCourseItemDto>().ReverseMap();
+
+        CreateMap<Course, GetByIdCourseResponse>().ReverseMap();
     }
 }
