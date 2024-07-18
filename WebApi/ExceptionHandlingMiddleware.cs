@@ -1,6 +1,6 @@
 ﻿
 using Application.Exceptions;
-using Domain.Common.Exceptions;
+using Domain.Common.Exceptions.Base;
 using System.Text.Json;
 
 namespace WebApi;
