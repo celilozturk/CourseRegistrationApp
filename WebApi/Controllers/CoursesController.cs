@@ -24,6 +24,8 @@ public class CoursesController : CustomBaseController
         var response= await Mediator.Send(new GetListCourseQuery());
         return Ok(response);
     }
+    //[ProducesResponseType(typeof(GetByIdCourseResponse),StatusCodes.Status200OK)]
+    //[ProducesResponseType(StatusCodes.Status404NotFound)]
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(int id)
     {

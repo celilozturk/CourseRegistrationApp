@@ -1,6 +1,7 @@
 ﻿using Domain.Abstractions.Repositories;
 using Domain.Entities;
 using Infrastructure.Contexts;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,11 @@ public class CourseRepository : GenericRepository<Course, int>, ICourseRepositor
 {
     public CourseRepository(AppDbContext appDbContext) : base(appDbContext)
     {
+    }
+
+    public async Task<Course> GetByNameAsync(string name)
+    {
+       return await _appDbContext.Courses.FirstOrDefaultAsync(c => c.Name == name);
+        
     }
 }

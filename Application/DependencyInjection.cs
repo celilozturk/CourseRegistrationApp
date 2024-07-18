@@ -1,5 +1,7 @@
 ﻿using Application.Behaviors.Logging;
 using Application.Behaviors.Validation;
+using Application.Features.Courses.Rules;
+using Domain.Common;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -23,6 +25,8 @@ public static class DependencyInjection
         });
         services.AddAutoMapper(assembly);
         services.AddValidatorsFromAssembly(assembly);
+        services.AddScoped(typeof(CourseBusinessRules));
         return services;
     }
+//    
 }

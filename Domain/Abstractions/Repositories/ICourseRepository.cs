@@ -8,4 +8,5 @@ using System.Threading.Tasks;
 namespace Domain.Abstractions.Repositories;
 public interface ICourseRepository:IGenericRepository<Course, int>
 {
+    Task<Course> GetByNameAsync(string name);
 }
