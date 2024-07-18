@@ -2,11 +2,6 @@
 using Domain.Common;
 using Domain.Common.Exceptions.Base;
 using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Courses.Rules;
 internal class CourseBusinessRules(ICourseRepository courseRepository):BaseBusinessRules

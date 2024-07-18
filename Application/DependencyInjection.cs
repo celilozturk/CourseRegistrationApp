@@ -1,15 +1,9 @@
 ﻿using Application.Behaviors.Logging;
 using Application.Behaviors.Validation;
 using Application.Features.Courses.Rules;
-using Domain.Common;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application;
 public static class DependencyInjection

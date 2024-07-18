@@ -1,12 +1,13 @@
-﻿using Domain.Abstractions;
+﻿using Application.Services;
+using Domain.Abstractions;
 using Domain.Abstractions.Repositories;
+using Domain.Entities;
 using Infrastructure.Contexts;
 using Infrastructure.Repositories;
+using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Domain.Entities;
 
 
 namespace Infrastructure;
@@ -26,8 +27,10 @@ public static class DependencyInjection
             action.Password.RequireNonAlphanumeric = false;
             action.Password.RequireDigit = false;
         }).AddEntityFrameworkStores<AppDbContext>();
+
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<ICourseRepository, CourseRepository>();  
+        services.AddScoped<IJwtProvider,JwtProvider>();
 
         return services;
     }
