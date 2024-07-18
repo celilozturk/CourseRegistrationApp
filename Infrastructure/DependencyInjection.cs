@@ -5,11 +5,9 @@ using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Domain.Entities;
+
 
 namespace Infrastructure;
 public static class DependencyInjection
@@ -20,6 +18,14 @@ public static class DependencyInjection
         {
             opt.UseSqlServer(configuration.GetConnectionString("SqlConnectionString"));
         });
+        services.AddIdentity<AppUser, AppRole>(action =>
+        {
+            action.Password.RequiredLength = 5;
+            action.Password.RequireUppercase = false;
+            action.Password.RequireLowercase = false;
+            action.Password.RequireNonAlphanumeric = false;
+            action.Password.RequireDigit = false;
+        }).AddEntityFrameworkStores<AppDbContext>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<ICourseRepository, CourseRepository>();  
 

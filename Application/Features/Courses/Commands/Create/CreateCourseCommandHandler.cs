@@ -14,7 +14,6 @@ internal sealed class CreateCourseCommandHandler(ICourseRepository courseReposit
         await courseBusinessRules.CourseNameCannotBeDuplicated(request.Name);
 
         var course= mapper.Map<Course>(request);   
-
         await courseRepository.CreateAsync(course,cancellationToken);
         await unitOfWork.CommitAsync(cancellationToken);
         return mapper.Map<CreateCourseResponse>(course);
