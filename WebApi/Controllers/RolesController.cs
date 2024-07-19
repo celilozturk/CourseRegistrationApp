@@ -10,7 +10,6 @@ public class RolesController : CustomBaseController
     [HttpGet]
     public async Task<IActionResult> Sync()
     {
-
         var response=await Mediator.Send(new RoleSyncCommand());    
         return Ok(response);
     }

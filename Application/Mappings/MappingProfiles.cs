@@ -2,6 +2,7 @@
 using Application.Features.Courses.Commands.Update;
 using Application.Features.Courses.Queries.GetById;
 using Application.Features.Courses.Queries.GetList;
+using Application.Features.Users.Commands;
 using AutoMapper;
 using Domain.Entities;
 
@@ -19,5 +20,7 @@ public class MappingProfiles:Profile
 
         CreateMap<Course, UpdateCourseCommand>().ReverseMap();
         CreateMap<Course, UpdateCourseResponse>().ReverseMap();
+
+        CreateMap<AppUser, CreateUserCommand>().ReverseMap();
     }
 }
