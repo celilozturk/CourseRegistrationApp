@@ -1,7 +1,7 @@
 ﻿using Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 
-namespace eAppointmentServer.WebAPI;
+namespace WebApi;
 
 public static class Helper
 {
@@ -18,7 +18,7 @@ public static class Helper
                     LastName = "Ozturk",
                     Email = "admin@admin.com",
                     UserName = "admin"
-                }, "1");
+                }, "12345");
             }
         }
     }

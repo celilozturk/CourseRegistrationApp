@@ -21,7 +21,7 @@ internal sealed class LoginCommandHandler(UserManager<AppUser> userManager, IJwt
 
         }
         bool isPasswordCorrect = await userManager.CheckPasswordAsync(appUser, request.Password);
-        if (isPasswordCorrect)
+        if (!isPasswordCorrect)
         {
             throw new LoginException();
         }

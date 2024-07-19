@@ -1,5 +1,4 @@
 using Application;
-using eAppointmentServer.WebAPI;
 using Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
