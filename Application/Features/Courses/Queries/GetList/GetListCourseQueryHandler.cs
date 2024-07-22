@@ -10,7 +10,7 @@ internal sealed class GetListCourseQueryHandler(ICourseRepository courseReposito
 {
     public async Task<GetListResponse<GetListCourseItemDto>> Handle(GetListCourseQuery request, CancellationToken cancellationToken)
     {
-        var courses = mapper.Map<List<GetListCourseItemDto>>(courseRepository.GetAll().ToList());
+        var courses = mapper.Map<List<GetListCourseItemDto>>(await courseRepository.GetAllAsync());
         return new GetListResponse<GetListCourseItemDto>() { Items = courses };
     }
 }

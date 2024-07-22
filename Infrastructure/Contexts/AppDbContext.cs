@@ -21,4 +21,6 @@ public sealed class AppDbContext : IdentityDbContext<AppUser,AppRole,Guid,Identi
     }
 
     public DbSet<Course> Courses { get; set; }
+    public DbSet<Candidate> Candidates { get; set; }
+    public DbSet<Enrollment> Enrollments { get; set; }
 }

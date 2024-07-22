@@ -10,6 +10,11 @@ public class CourseRepository : GenericRepository<Course, int>, ICourseRepositor
     {
     }
 
+    public async Task<IEnumerable<Course>> GetAllAsync()
+    {
+        return await _appDbContext.Courses.ToListAsync();
+    }
+
     public async Task<Course> GetByNameAsync(string name)
     {
        return await _appDbContext.Courses.FirstOrDefaultAsync(c => c.Name == name);

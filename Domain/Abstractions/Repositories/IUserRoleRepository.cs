@@ -9,5 +9,7 @@ using System.Threading.Tasks;
 namespace Domain.Abstractions.Repositories;
 public interface IUserRoleRepository:IGenericRepository<AppUserRole,Guid>
 {
+    Task<IEnumerable<AppUserRole>> GetAllAsync();
+
     IQueryable<AppUserRole> Where(Expression<Func<AppUserRole, bool>> expression);
 }

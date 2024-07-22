@@ -1,6 +1,7 @@
 ﻿using Domain.Abstractions.Repositories;
 using Domain.Entities;
 using Infrastructure.Contexts;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,11 @@ internal sealed class UserRoleRepository : GenericRepository<AppUserRole, Guid>,
     public UserRoleRepository(AppDbContext appDbContext) : base(appDbContext)
     {
 
+    }
+
+    public async Task<IEnumerable<AppUserRole>> GetAllAsync()
+    {
+       return await _appDbContext.UserRoles.ToListAsync();
     }
 
     public  IQueryable<AppUserRole> Where(Expression<Func<AppUserRole, bool>> expression)
