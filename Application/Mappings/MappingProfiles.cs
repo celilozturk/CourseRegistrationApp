@@ -2,6 +2,7 @@
 using Application.Features.Courses.Commands.Update;
 using Application.Features.Courses.Queries.GetById;
 using Application.Features.Courses.Queries.GetList;
+using Application.Features.Courses.Queries.GetListWithEnrollments;
 using Application.Features.Users.Commands;
 using AutoMapper;
 using Domain.Entities;
@@ -22,5 +23,7 @@ public class MappingProfiles:Profile
         CreateMap<Course, UpdateCourseResponse>().ReverseMap();
 
         CreateMap<AppUser, CreateUserCommand>().ReverseMap();
+
+        CreateMap<Course, GetListCourseWithEnrollmentsItemDto>().ReverseMap();
     }
 }

@@ -10,4 +10,5 @@ public interface ICourseRepository:IGenericRepository<Course, int>
 {
     Task<IEnumerable<Course>> GetAllAsync();
     Task<Course> GetByNameAsync(string name);
+    Task<IEnumerable<Course>> GetAllCourseWithEnrollmentsAsync();
 }

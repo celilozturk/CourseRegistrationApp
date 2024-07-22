@@ -1,8 +1,8 @@
 ﻿using Domain.Entities;
 
-namespace Application.Features.Courses.Queries.GetList;
+namespace Application.Features.Courses.Queries.GetListWithEnrollments;
 
-public class GetListCourseItemDto
+public class GetListCourseWithEnrollmentsItemDto
 {
     public int Id { get; set; }
     public string Name { get; set; }

@@ -3,12 +3,13 @@ using Application.Features.Courses.Commands.Delete;
 using Application.Features.Courses.Commands.Update;
 using Application.Features.Courses.Queries.GetById;
 using Application.Features.Courses.Queries.GetList;
+using Application.Features.Courses.Queries.GetListWithEnrollments;
 using Azure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers;
-[Route("api/[controller]")]
+[Route("api/[controller]/[action]")]
 [ApiController]
 public class CoursesController : CustomBaseController
 {
@@ -24,6 +25,14 @@ public class CoursesController : CustomBaseController
         var response= await Mediator.Send(new GetListCourseQuery());
         return Ok(response);
     }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAllWithEnrollments()
+    {
+        var response = await Mediator.Send(new GetListCourseWithEnrollmentsQuery());
+        return Ok(response);
+    }
+
     //[ProducesResponseType(typeof(GetByIdCourseResponse),StatusCodes.Status200OK)]
     //[ProducesResponseType(StatusCodes.Status404NotFound)]
     [HttpGet("{id}")]

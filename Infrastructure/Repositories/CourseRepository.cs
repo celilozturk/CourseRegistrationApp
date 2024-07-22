@@ -17,7 +17,12 @@ public class CourseRepository : GenericRepository<Course, int>, ICourseRepositor
 
     public async Task<Course> GetByNameAsync(string name)
     {
-       return await _appDbContext.Courses.FirstOrDefaultAsync(c => c.Name == name);
-        
+       return await _appDbContext.Courses.FirstOrDefaultAsync(c => c.Name == name);        
+    }
+    public async Task<IEnumerable<Course>> GetAllCourseWithEnrollmentsAsync()
+    {
+       return await _appDbContext.Courses.Include(x=>x.Enrollments).ToListAsync();
+        //return await _appDbContext.Courses.Select(c => new { c.Id, c.Name, c.TotalPaticipants, Enrollment = c.Enrollments.Select(e => new {e.Candidate.FullName}).ToList() }).ToListAsync();
     }
 }
+
