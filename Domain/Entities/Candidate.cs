@@ -19,5 +19,6 @@ public class Candidate:BaseEntity<int>
     public Candidate()
     {
         ApplyAt= DateTime.Now;  
+        CreatedDate = DateTime.Now;
     }
 }

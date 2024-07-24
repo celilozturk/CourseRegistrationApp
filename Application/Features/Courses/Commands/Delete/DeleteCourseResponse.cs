@@ -2,7 +2,7 @@
 
 public class DeleteCourseResponse
 {
-    public string message;
+    public string message { get; set; }
 
     public DeleteCourseResponse()
     {

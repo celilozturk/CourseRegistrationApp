@@ -1,4 +1,5 @@
-﻿using Application.Features.Candidates.Commands;
+﻿using Application.Features.Candidates.Commands.Create;
+using Application.Features.Candidates.Commands.Update;
 using Application.Features.Candidates.Queries.GetById;
 using Application.Features.Candidates.Queries.GetList;
 using Application.Features.Courses.Commands.Create;
@@ -34,5 +35,8 @@ public class MappingProfiles:Profile
 
         CreateMap<Candidate, CreateCandidateCommand>().ReverseMap();
         CreateMap<Candidate, CreateCandidateResponse>().ReverseMap();
+
+        CreateMap<Candidate, UpdateCandidateCommand>().ReverseMap();
+        CreateMap<Candidate, UpdateCandidateResponse>().ReverseMap();
     }
 }
