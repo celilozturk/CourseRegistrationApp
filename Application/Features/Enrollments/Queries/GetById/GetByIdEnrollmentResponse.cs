@@ -4,6 +4,7 @@ namespace Application.Features.Enrollments.Queries.GetById;
 
 public class GetByIdEnrollmentResponse
 {
+    public int Id { get; set; }
     public int CourseId { get; set; }
     public int CandidateId { get; set; }
     public bool IsApproved { get; set; }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace Application.Features.Enrollments.Queries.GetList;
 public class GetListEnrollmentItemDto
 {
+    public int Id { get; set; }
     public int CourseId { get; set; }
     public int CandidateId { get; set; }
     public bool IsApproved { get; set; }

@@ -7,6 +7,8 @@ using Application.Features.Courses.Commands.Update;
 using Application.Features.Courses.Queries.GetById;
 using Application.Features.Courses.Queries.GetList;
 using Application.Features.Courses.Queries.GetListWithEnrollments;
+using Application.Features.Enrollments.Commands.Create;
+using Application.Features.Enrollments.Commands.Delete;
 using Application.Features.Enrollments.Queries.GetById;
 using Application.Features.Enrollments.Queries.GetList;
 using Application.Features.Users.Commands;
@@ -28,7 +30,6 @@ public class MappingProfiles:Profile
 
         CreateMap<AppUser, CreateUserCommand>().ReverseMap();
 
-
         CreateMap<Candidate, GetListCandidateItemDto>().ReverseMap();
         CreateMap<Candidate, GetByIdCandidateResponse>().ReverseMap();
         CreateMap<Candidate, CreateCandidateCommand>().ReverseMap();
@@ -38,5 +39,10 @@ public class MappingProfiles:Profile
 
         CreateMap<Enrollment, GetListEnrollmentItemDto>().ReverseMap();
         CreateMap<Enrollment, GetByIdEnrollmentResponse>().ReverseMap();
+        CreateMap<Enrollment, CreateEnrollmentCommand>().ReverseMap();
+        CreateMap<Enrollment, CreateEnrollmentResponse>().ReverseMap();
+        CreateMap<Enrollment, DeleteEnrollmentCommand>().ReverseMap();
+        CreateMap<Enrollment, DeleteEnrollmentResponse>().ReverseMap();
+        
     }
 }
