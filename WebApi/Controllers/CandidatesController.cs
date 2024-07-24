@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebApi.Controllers;
 [Route("api/[controller]")]
 [ApiController]
-public class CandidateController : CustomBaseController
+public class CandidatesController : CustomBaseController
 {
     [HttpGet]
     public async Task<IActionResult> GetAll()

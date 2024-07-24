@@ -24,6 +24,7 @@ public static class DependencyInjection
         services.AddScoped(typeof(CourseBusinessRules));
         services.AddScoped(typeof(UserBusinessRules));
         services.AddScoped(typeof(CandidateBusinessRules));
+
         //Refactor => service registration for business rules!
 
         return services;
