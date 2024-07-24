@@ -30,6 +30,7 @@ public static class DependencyInjection
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<ICourseRepository, CourseRepository>();  
+        services.AddScoped<ICandidateRepository, CandidateRepository>();    
         services.AddScoped<IUserRoleRepository, UserRoleRepository>();
         services.AddScoped<IJwtProvider,JwtProvider>();
 
