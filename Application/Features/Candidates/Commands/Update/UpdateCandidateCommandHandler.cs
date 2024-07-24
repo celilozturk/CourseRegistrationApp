@@ -21,6 +21,6 @@ internal sealed class UpdateCandidateCommandHandler(ICandidateRepository candida
         candidate.UpdatedDate = DateTime.UtcNow;
         candidateRepository.Update(candidate);
         unitOfWork.Commmit();
-        return new UpdateCandidateResponse();
+        return mapper.Map<UpdateCandidateResponse>(candidate);
     }
 }

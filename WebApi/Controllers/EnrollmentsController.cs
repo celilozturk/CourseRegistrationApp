@@ -1,5 +1,6 @@
 ﻿using Application.Features.Enrollments.Commands.Create;
 using Application.Features.Enrollments.Commands.Delete;
+using Application.Features.Enrollments.Commands.Update;
 using Application.Features.Enrollments.Queries.GetById;
 using Application.Features.Enrollments.Queries.GetList;
 using Microsoft.AspNetCore.Http;
@@ -27,6 +28,12 @@ public class EnrollmentsController : CustomBaseController
     public async Task<IActionResult> Create(CreateEnrollmentCommand createEnrollmentCommand)
     {       
         var response = await Mediator.Send(createEnrollmentCommand);
+        return Ok(response);
+    }
+    [HttpPut]
+    public async Task<IActionResult> Update(UpdateEnrollmentCommand updateEnrollmentCommand)
+    {
+        var response = await Mediator.Send(updateEnrollmentCommand);
         return Ok(response);
     }
     [HttpDelete]
