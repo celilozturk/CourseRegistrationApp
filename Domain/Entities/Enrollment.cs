@@ -14,7 +14,7 @@ public class Enrollment:BaseEntity<int>
     public int CandidateId { get; set; }
     public bool IsApproved { get; set; }
     [JsonIgnore]
-    public Course Course { get; set; }
+    public virtual Course Course { get; set; }
     [JsonIgnore]
-    public Candidate Candidate { get; set; }
+    public virtual Candidate Candidate { get; set; }
 }

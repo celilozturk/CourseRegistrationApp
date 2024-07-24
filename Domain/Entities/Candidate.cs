@@ -14,6 +14,7 @@ public class Candidate:BaseEntity<int>
     public string LastName { get; set; } = string.Empty;
     public string FullName => $"{FirstName} {LastName.ToUpper()}";
     public int Age { get; set; } = default;
+
     [JsonIgnore]
     public virtual IEnumerable<Enrollment> Enrollments { get; set; }
     public DateTime ApplyAt { get; set; }
