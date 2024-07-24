@@ -1,4 +1,5 @@
-﻿using Application.Features.Candidates.Queries.GetById;
+﻿using Application.Features.Candidates.Commands;
+using Application.Features.Candidates.Queries.GetById;
 using Application.Features.Candidates.Queries.GetList;
 using Application.Features.Courses.Commands.Create;
 using Application.Features.Courses.Commands.Update;
@@ -30,5 +31,8 @@ public class MappingProfiles:Profile
 
         CreateMap<Candidate, GetListCandidateItemDto>().ReverseMap();
         CreateMap<Candidate, GetByIdCandidateResponse>().ReverseMap();
+
+        CreateMap<Candidate, CreateCandidateCommand>().ReverseMap();
+        CreateMap<Candidate, CreateCandidateResponse>().ReverseMap();
     }
 }

@@ -1,4 +1,5 @@
-﻿using Application.Features.Candidates.Queries.GetById;
+﻿using Application.Features.Candidates.Commands;
+using Application.Features.Candidates.Queries.GetById;
 using Application.Features.Candidates.Queries.GetList;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +21,12 @@ public class CandidateController : CustomBaseController
     {
         var query= new GetByIdCandidateQuery() { Id=id};
         var response = await Mediator.Send(query);
+        return Ok(response);
+    }
+    [HttpPost]
+    public async Task<IActionResult> Create(CreateCandidateCommand createCandidateCommand)
+    {
+        var response = await Mediator.Send(createCandidateCommand);
         return Ok(response);
     }
 }

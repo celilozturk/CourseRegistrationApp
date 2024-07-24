@@ -1,5 +1,6 @@
 ﻿using Application.Behaviors.Logging;
 using Application.Behaviors.Validation;
+using Application.Features.Candidates.Rules;
 using Application.Features.Courses.Rules;
 using Application.Features.Users.Rules;
 using FluentValidation;
@@ -22,6 +23,7 @@ public static class DependencyInjection
         services.AddValidatorsFromAssembly(assembly);
         services.AddScoped(typeof(CourseBusinessRules));
         services.AddScoped(typeof(UserBusinessRules));
+        services.AddScoped(typeof(CandidateBusinessRules));
         //Refactor => service registration for business rules!
 
         return services;

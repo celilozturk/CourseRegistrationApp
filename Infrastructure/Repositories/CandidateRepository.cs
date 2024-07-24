@@ -2,6 +2,7 @@
 using Domain.Entities;
 using Infrastructure.Contexts;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace Infrastructure.Repositories;
 public class CandidateRepository : GenericRepository<Candidate, int>, ICandidateRepository
@@ -13,5 +14,9 @@ public class CandidateRepository : GenericRepository<Candidate, int>, ICandidate
     public async Task<IEnumerable<Candidate>> GetAllAsync()
     {
         return await _appDbContext.Candidates.ToListAsync();
+    }
+    public async Task<bool> AnyAsync(Expression<Func<Candidate, bool>> expressions)
+    {
+      return await _appDbContext.Candidates.AnyAsync(expressions);
     }
 }
