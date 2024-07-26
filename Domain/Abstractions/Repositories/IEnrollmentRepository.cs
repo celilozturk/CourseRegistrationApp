@@ -12,4 +12,6 @@ public interface IEnrollmentRepository:IGenericRepository<Enrollment,int>
     Task<IEnumerable<Enrollment>> GetAllAsync();
     Task<bool> AnyAsync(Expression<Func<Enrollment, bool>> expressions);
     Task<Enrollment> GetByIdWithCourseAndCandidate(int enrollmentId);
+    Task<IEnumerable<Enrollment>> GetAllEnrollmentsWithCourseAndCandidateAsync();
+
 }

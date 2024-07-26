@@ -7,6 +7,7 @@ using Application.Features.Courses.Commands.Update;
 using Application.Features.Courses.Queries.GetById;
 using Application.Features.Courses.Queries.GetList;
 using Application.Features.Courses.Queries.GetListWithEnrollments;
+using Application.Features.Enrollments.Commands.Approve;
 using Application.Features.Enrollments.Commands.Create;
 using Application.Features.Enrollments.Commands.Delete;
 using Application.Features.Enrollments.Commands.Update;
@@ -44,6 +45,8 @@ public class MappingProfiles:Profile
         CreateMap<Enrollment, CreateEnrollmentResponse>().ReverseMap();      
         CreateMap<Enrollment, UpdateEnrollmentCommand>().ReverseMap();
         CreateMap<Enrollment, UpdateEnrollmentResponse>().ReverseMap();
+        CreateMap<Enrollment, ApproveEnrollmentCommand>().ReverseMap();
+        CreateMap<Enrollment, ApproveEnrollmentResponse>().ReverseMap();
         
     }
 }

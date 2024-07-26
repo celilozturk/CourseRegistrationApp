@@ -11,7 +11,7 @@ internal sealed class GetListEnrollmentQueryHandler(IEnrollmentRepository enroll
 {
     public async Task<GetListResponse<GetListEnrollmentItemDto>> Handle(GetListEnrollmentQuery request, CancellationToken cancellationToken)
     {
-        var enrollments =mapper.Map<List<GetListEnrollmentItemDto>>(await enrollmentRepository.GetAllAsync());
+        var enrollments =mapper.Map<List<GetListEnrollmentItemDto>>(await enrollmentRepository.GetAllEnrollmentsWithCourseAndCandidateAsync());
      
         return new GetListResponse<GetListEnrollmentItemDto> { Items = enrollments };        
     }

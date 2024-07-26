@@ -82,11 +82,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseHttpsRedirection();
+app.UseCors();
 
 app.UseAuthorization();
 
 app.MapControllers();
-Helper.CreateUserAsync(app).Wait();
+//Helper.CreateUserAsync(app).Wait();
 
 
 app.Run();

@@ -1,4 +1,5 @@
-﻿using Application.Features.Enrollments.Commands.Create;
+﻿using Application.Features.Enrollments.Commands.Approve;
+using Application.Features.Enrollments.Commands.Create;
 using Application.Features.Enrollments.Commands.Delete;
 using Application.Features.Enrollments.Commands.Update;
 using Application.Features.Enrollments.Queries.GetById;
@@ -40,6 +41,13 @@ public class EnrollmentsController : CustomBaseController
     public async Task<IActionResult> Delete(DeleteEnrollmentCommand deleteEnrollmentCommand)
     {
         var response = await Mediator.Send(deleteEnrollmentCommand);
+        return Ok(response);
+    }
+    [HttpPost("[action]/{id}")]
+    public async Task<IActionResult> Approve([FromRoute]int id)
+    { 
+        var command= new ApproveEnrollmentCommand() { Id=id };
+        var response = await Mediator.Send(command);
         return Ok(response);
     }
 }

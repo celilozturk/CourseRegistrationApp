@@ -31,4 +31,9 @@ public class EnrollmentRepository : GenericRepository<Enrollment, int>, IEnrollm
         return await _appDbContext.Enrollments.Include(x => x.Course).Include(x => x.Candidate).FirstOrDefaultAsync(x => x.Id == enrollmentId);
         
     }
+    public async Task<IEnumerable<Enrollment>> GetAllEnrollmentsWithCourseAndCandidateAsync()
+    {
+        return await _appDbContext.Enrollments.Include(x => x.Course).Include(x=>x.Candidate).ToListAsync();
+       
+    }
 }

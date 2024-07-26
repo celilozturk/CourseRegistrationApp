@@ -16,7 +16,6 @@ internal sealed class UpdateCandidateCommandHandler(ICandidateRepository candida
         if (candidate == null) {
             throw new CandidateNotFoundException(request.Id);
         }
-        candidateBusinessRules.CheckIfEmailExist(candidate.Email);
         candidate = mapper.Map(request, candidate);
         candidate.UpdatedDate = DateTime.UtcNow;
         candidateRepository.Update(candidate);

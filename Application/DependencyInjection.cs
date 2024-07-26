@@ -2,6 +2,7 @@
 using Application.Behaviors.Validation;
 using Application.Features.Candidates.Rules;
 using Application.Features.Courses.Rules;
+using Application.Features.Enrollments.Rules;
 using Application.Features.Users.Rules;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,6 +25,7 @@ public static class DependencyInjection
         services.AddScoped(typeof(CourseBusinessRules));
         services.AddScoped(typeof(UserBusinessRules));
         services.AddScoped(typeof(CandidateBusinessRules));
+        services.AddScoped(typeof(EnrollmentBusinessRules));
 
         //Refactor => service registration for business rules!
 
