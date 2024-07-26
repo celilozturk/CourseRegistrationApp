@@ -36,4 +36,9 @@ public class EnrollmentRepository : GenericRepository<Enrollment, int>, IEnrollm
         return await _appDbContext.Enrollments.Include(x => x.Course).Include(x=>x.Candidate).ToListAsync();
        
     }
+
+    public IEnumerable<Enrollment> Where(Expression<Func<Enrollment, bool>> expression)
+    {
+        return  _appDbContext.Enrollments.Where(expression);
+    }
 }

@@ -14,4 +14,7 @@ public interface IEnrollmentRepository:IGenericRepository<Enrollment,int>
     Task<Enrollment> GetByIdWithCourseAndCandidate(int enrollmentId);
     Task<IEnumerable<Enrollment>> GetAllEnrollmentsWithCourseAndCandidateAsync();
 
+    IEnumerable<Enrollment> Where(Expression<Func<Enrollment, bool>> expression);
+   
+    
 }
