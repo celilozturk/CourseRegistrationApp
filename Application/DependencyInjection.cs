@@ -1,5 +1,6 @@
 ﻿using Application.Behaviors.Logging;
 using Application.Behaviors.Validation;
+using Application.Features.Applications.Rules;
 using Application.Features.Candidates.Rules;
 using Application.Features.Courses.Rules;
 using Application.Features.Enrollments.Rules;
@@ -26,6 +27,7 @@ public static class DependencyInjection
         services.AddScoped(typeof(UserBusinessRules));
         services.AddScoped(typeof(CandidateBusinessRules));
         services.AddScoped(typeof(EnrollmentBusinessRules));
+        services.AddScoped(typeof(ApplicationBusinessRules));
 
         //Refactor => service registration for business rules!
 

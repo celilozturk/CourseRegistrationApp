@@ -19,4 +19,9 @@ public class CandidateRepository : GenericRepository<Candidate, int>, ICandidate
     {
       return await _appDbContext.Candidates.AnyAsync(expressions);
     }
+
+    public async Task<Candidate> GetByEmailAsync(string email)
+    {
+        return await _appDbContext.Candidates.FirstOrDefaultAsync(c => c.Email == email);
+    }
 }

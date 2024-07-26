@@ -11,5 +11,7 @@ public interface ICandidateRepository:IGenericRepository<Candidate,int>
 {
     Task<IEnumerable<Candidate>> GetAllAsync();
     Task<bool> AnyAsync(Expression<Func<Candidate, bool>> expressions);
+    Task<Candidate> GetByEmailAsync(string email);
+
 
 }

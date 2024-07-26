@@ -1,4 +1,5 @@
-﻿using Application.Features.Candidates.Commands.Create;
+﻿using Application.Features.Applications.Create;
+using Application.Features.Candidates.Commands.Create;
 using Application.Features.Candidates.Commands.Update;
 using Application.Features.Candidates.Queries.GetById;
 using Application.Features.Candidates.Queries.GetList;
@@ -38,6 +39,7 @@ public class MappingProfiles:Profile
         CreateMap<Candidate, CreateCandidateResponse>().ReverseMap();
         CreateMap<Candidate, UpdateCandidateCommand>().ReverseMap();
         CreateMap<Candidate, UpdateCandidateResponse>().ReverseMap();
+        CreateMap<Candidate, CreateApplicationCommand>().ReverseMap();
 
         CreateMap<Enrollment, GetListEnrollmentItemDto>().ReverseMap();
         CreateMap<Enrollment, GetByIdEnrollmentResponse>().ReverseMap();
@@ -47,6 +49,7 @@ public class MappingProfiles:Profile
         CreateMap<Enrollment, UpdateEnrollmentResponse>().ReverseMap();
         CreateMap<Enrollment, ApproveEnrollmentCommand>().ReverseMap();
         CreateMap<Enrollment, ApproveEnrollmentResponse>().ReverseMap();
+        CreateMap<Enrollment, CreateApplicationResponse>().ReverseMap();
         
     }
 }

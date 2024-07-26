@@ -11,7 +11,7 @@ internal sealed class CreateEnrollmentCommandHandler(IEnrollmentRepository enrol
 {
     public async Task<CreateEnrollmentResponse> Handle(CreateEnrollmentCommand request, CancellationToken cancellationToken)
     {
-       await enrollmentBusinessRules.CheckIfCourseIsAssigned(request);
+       await enrollmentBusinessRules.CheckIfCourseIsAssignedAsync(request);
         var enrollment = mapper.Map<Enrollment>(request);
         await enrollmentRepository.CreateAsync(enrollment,cancellationToken);
         await unitOfWork.CommitAsync(cancellationToken);
