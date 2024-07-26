@@ -1,4 +1,4 @@
-﻿namespace Application.Features.Applications.Create;
+﻿namespace Application.Features.Applications.Commands.Create;
 
 public class CreateApplicationResponse
 {

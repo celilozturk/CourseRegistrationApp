@@ -1,4 +1,4 @@
-﻿using Application.Features.Applications.Create;
+﻿using Application.Features.Applications.Commands.Create;
 using Application.Features.Enrollments.Commands.Create;
 using AutoMapper;
 using Domain.Abstractions;
@@ -16,7 +16,8 @@ using System.Threading.Tasks;
 namespace Application.Features.Applications.Rules;
 internal class ApplicationBusinessRules(ICandidateRepository candidateRepository, ICourseRepository courseRepository,IEnrollmentRepository enrollmentRepository, IMapper mapper,IUnitOfWork unitOfWork) : BaseBusinessRules
 {
-    //CancellationToken cancellationToken = CancellationToken.None;
+
+    CancellationToken cancellationToken = CancellationToken.None;
     public async Task<int> CheckIfCandidateIsExistOrCreateAsync(CreateApplicationCommand command)
     {
         if (await candidateRepository.AnyAsync(x => x.Email == command.Email))
@@ -31,7 +32,7 @@ internal class ApplicationBusinessRules(ICandidateRepository candidateRepository
 
     public async Task CheckIfCourseIsExist(int courseId)
     {
-        CancellationToken cancellationToken = CancellationToken.None;
+        //CancellationToken cancellationToken = CancellationToken.None;
         var course = await courseRepository.GetByIdAsync(courseId, cancellationToken);
         if (course is null)
         {
@@ -44,9 +45,18 @@ internal class ApplicationBusinessRules(ICandidateRepository candidateRepository
         if (result.Count() > 0) throw new BusinessException("User has already applied!");
 
     }
+    public async Task CheckIfTotalPaticipantsExceeds(int courseId)
+    {
+        var participantsCount =  enrollmentRepository.Where(x => x.CourseId == courseId).Count();
+        var course =await courseRepository.GetByIdAsync(courseId,cancellationToken);
+        if(participantsCount >= course.TotalPaticipants)
+        {
+            throw new BusinessException("Total number of application has been reached");
+        }
+    }
     private async Task<Candidate> CreateNewCandidate(Candidate candidate)
     {
-        CancellationToken cancellationToken = CancellationToken.None;
+        //CancellationToken cancellationToken = CancellationToken.None;
         await candidateRepository.CreateAsync(candidate, cancellationToken);
         await unitOfWork.CommitAsync(cancellationToken);
         return candidate;

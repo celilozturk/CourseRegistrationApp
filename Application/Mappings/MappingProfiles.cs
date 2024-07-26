@@ -1,4 +1,4 @@
-﻿using Application.Features.Applications.Create;
+﻿using Application.Features.Applications.Commands.Create;
 using Application.Features.Candidates.Commands.Create;
 using Application.Features.Candidates.Commands.Update;
 using Application.Features.Candidates.Queries.GetById;
