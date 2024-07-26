@@ -15,7 +15,7 @@ internal sealed class CreateApplicationCommandHandler(ICourseRepository courseRe
         await applicationBusinessRules.CheckIfCourseIsExist(request.CourseId);
         int candidateId =await applicationBusinessRules.CheckIfCandidateIsExistOrCreateAsync(request);
         var enrollment=new Enrollment() { CourseId=request.CourseId, CandidateId=candidateId };
-        await applicationBusinessRules.CheckIfCourseIsAssignedAsync(enrollment);
+        await applicationBusinessRules.CheckIfUserHasAppliedAsync(enrollment);
          enrollment=await enrollmentRepository.CreateAsync(enrollment,cancellationToken);
         await unitOfWork.CommitAsync(cancellationToken);
         return mapper.Map<CreateApplicationResponse>(enrollment) ;
