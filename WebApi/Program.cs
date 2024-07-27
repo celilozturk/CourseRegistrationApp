@@ -1,4 +1,5 @@
 using Application;
+using Domain.Entities;
 using Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -70,6 +71,8 @@ builder.Services.AddSwaggerGen(setup =>
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddTransient<ExceptionHandlingMiddleware>();
+builder.Services.Configure<RoleOptions>(builder.Configuration.GetSection("RoleOptions"));
+var myAppSettings1 = builder.Configuration.GetSection("RoleOptions").Get<RoleOptions>();
 
 var app = builder.Build();
 
