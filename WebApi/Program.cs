@@ -72,6 +72,8 @@ builder.Services.AddSwaggerGen(setup =>
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddStackExchangeRedisCache(opt => opt.Configuration = "localhost:6379");
+//docker run --name my-redis -p 6379:6379 -d redis
+//Redis Insight, read and browse caches with 
 builder.Services.AddTransient<ExceptionHandlingMiddleware>();
 builder.Services.Configure<RoleOptions>(builder.Configuration.GetSection("RoleOptions"));
 builder.Services.Configure<CacheSettings>(builder.Configuration.GetSection("CacheSettings"));

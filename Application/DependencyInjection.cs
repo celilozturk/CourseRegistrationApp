@@ -22,6 +22,7 @@ public static class DependencyInjection
             config.AddOpenBehavior(typeof(LoggingBehavior<,>));
             config.AddOpenBehavior(typeof(ValidationBehavior<,>));
             config.AddOpenBehavior(typeof(CachingBehavior<,>));
+            config.AddOpenBehavior(typeof(CacheRemovingBehavior<,>));
         });
         services.AddAutoMapper(assembly);
         services.AddValidatorsFromAssembly(assembly);
