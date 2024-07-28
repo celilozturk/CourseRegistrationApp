@@ -1,4 +1,5 @@
-﻿using Application.Behaviors.Logging;
+﻿using Application.Behaviors.Caching;
+using Application.Behaviors.Logging;
 using Application.Behaviors.Validation;
 using Application.Features.Applications.Rules;
 using Application.Features.Candidates.Rules;
@@ -19,7 +20,8 @@ public static class DependencyInjection
         {
             config.RegisterServicesFromAssembly(assembly);
             config.AddOpenBehavior(typeof(LoggingBehavior<,>));
-            config.AddOpenBehavior(typeof(ValidationBehavior<,>));  
+            config.AddOpenBehavior(typeof(ValidationBehavior<,>));
+            config.AddOpenBehavior(typeof(CachingBehavior<,>));
         });
         services.AddAutoMapper(assembly);
         services.AddValidatorsFromAssembly(assembly);
