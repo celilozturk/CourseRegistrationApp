@@ -5,6 +5,7 @@ using Domain.Entities;
 using Infrastructure.Contexts;
 using Infrastructure.Repositories;
 using Infrastructure.Services;
+using Infrastructure.Services.Email.MailKit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,6 +35,7 @@ public static class DependencyInjection
         services.AddScoped<IUserRoleRepository, UserRoleRepository>();
         services.AddScoped<IEnrollmentRepository, EnrollmentRepository>();  
         services.AddScoped<IJwtProvider,JwtProvider>();
+        services.AddScoped<IEmailService, MailKitEMailService>();
 
         return services;
     }

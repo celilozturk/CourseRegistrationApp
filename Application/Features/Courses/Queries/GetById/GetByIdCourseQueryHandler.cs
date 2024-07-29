@@ -1,14 +1,15 @@
-﻿using AutoMapper;
+﻿using Application.Services;
+using AutoMapper;
 using Domain.Abstractions.Repositories;
 using Domain.Common.Exceptions;
 using MediatR;
 
 namespace Application.Features.Courses.Queries.GetById;
 
-internal sealed class GetByIdCourseQueryHandler(ICourseRepository courseRepository, IMapper mapper) : IRequestHandler<GetByIdCourseQuery, GetByIdCourseResponse>
+internal sealed class GetByIdCourseQueryHandler(ICourseRepository courseRepository, IMapper mapper,IEmailService emailService) : IRequestHandler<GetByIdCourseQuery, GetByIdCourseResponse>
 {
     public async Task<GetByIdCourseResponse> Handle(GetByIdCourseQuery request, CancellationToken cancellationToken)
-    {
+    {       
         var course = await courseRepository.GetByIdAsync(request.Id, cancellationToken);
         if(course is null)
         {

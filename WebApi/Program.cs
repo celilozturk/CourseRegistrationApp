@@ -77,8 +77,10 @@ builder.Services.AddStackExchangeRedisCache(opt => opt.Configuration = "localhos
 builder.Services.AddTransient<ExceptionHandlingMiddleware>();
 builder.Services.Configure<RoleOptions>(builder.Configuration.GetSection("RoleOptions"));
 builder.Services.Configure<CacheSettings>(builder.Configuration.GetSection("CacheSettings"));
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
 var myAppSettings1 = builder.Configuration.GetSection("RoleOptions").Get<RoleOptions>();
 var cacheSettings = builder.Configuration.GetSection("CacheSettings").Get<CacheSettings>();
+var emailSettings = builder.Configuration.GetSection("EmailSettings").Get<EmailSettings>();
 
 var app = builder.Build();
 
