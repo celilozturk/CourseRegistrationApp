@@ -2,9 +2,12 @@
 using Domain.Abstractions;
 using Domain.Abstractions.Repositories;
 using Domain.Entities;
+using Domain.Enums;
 using Infrastructure.Contexts;
 using Infrastructure.Repositories;
 using Infrastructure.Services;
+using Infrastructure.Services.Email.AzureQueueEmailService;
+using Infrastructure.Services.Email.AzureQueueStorageEmailFunctionAppService;
 using Infrastructure.Services.Email.MailKit;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -35,7 +38,11 @@ public static class DependencyInjection
         services.AddScoped<IUserRoleRepository, UserRoleRepository>();
         services.AddScoped<IEnrollmentRepository, EnrollmentRepository>();  
         services.AddScoped<IJwtProvider,JwtProvider>();
-        services.AddScoped<IEmailService, MailKitEMailService>();
+        //services.AddScoped<IEmailService, MailKitEMailService>();
+
+        var connectionString = configuration.GetConnectionString("AzureQueueStorage");
+        services.AddSingleton(QueueClient=>AzureQueueClientFactory.CreateQueueClient(connectionString,EQueueName.emails.ToString()));
+        services.AddScoped<IEmailService, QueueEmailService>();
 
         return services;
     }

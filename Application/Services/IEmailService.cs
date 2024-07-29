@@ -3,5 +3,6 @@
 namespace Application.Services;
 public interface IEmailService
 {
-    void SendEmail(EmailMessage  emailMessage);
+    //void SendEmail(EmailMessage  emailMessage);
+    Task SendEmailAsync(EmailMessage emailMessage);
 }
